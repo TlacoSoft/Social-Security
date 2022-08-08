@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".RegisterActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/sing_up"
+        android:textAlignment="center"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:textColor="@drawable/degradado_main"
+        android:textSize="45dp" />
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="Completa un registro introduciendo
+tus datos personales
+para poder ingresar a la aplicación"
+        android:textAlignment="center"
+        android:fontFamily="sans-serif-condensed"
+        android:textColor="@color/black"
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textAlignment="center"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:textAlignment="center" />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:hint="Escribe tu correo electrónico"
+        android:paddingTop="20dp"
+        ></EditText>
+
+    <EditText
+        android:id="@+id/user"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:hint="Escribe tu usuario"
+        android:paddingTop="20dp"
+        ></EditText>
+
+    <EditText
+        android:id="@+id/phone"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:hint="Escribe tu teléfono"
+        android:paddingTop="20dp"
+        ></EditText>
+
+    <EditText
+        android:id="@+id/password1"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:hint="Escribe tu correo electrónico"
+        android:paddingTop="20dp"
+        ></EditText>
+
+    <EditText
+        android:id="@+id/password2"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:hint="********"
+        android:paddingTop="20dp"
+        ></EditText>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:text="Las contraseñas no son iguales"
+        />
+
+    <Button
+        android:id="@+id/singUp"
+        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:text="@string/sing_up"
+        android:textAlignment="center"
+        android:background="@drawable/round_btn2"
+        android:textColor="@color/black"
+        android:onClick="register"
+        />
+
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:textAlignment="center"
+        android:textColor="@color/black"/>
+
+</LinearLayout>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_inicio">
+
+    <fragment
+        android:id="@+id/nav_inicio"
+        android:name="com.example.maps.ui.home.HomeFragment"
+        android:label="Inicio"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_grupos"
+        android:name="com.example.maps.ui.gallery.GalleryFragment"
+        android:label="Grupos"
+        tools:layout="@layout/fragment_gallery" />
+
+    <fragment
+        android:id="@+id/nav_notificaciones"
+        android:name="com.example.maps.ui.slideshow.SlideshowFragment"
+        android:label="Notificaciones"
+        tools:layout="@layout/fragment_slideshow" />
+
+    <fragment
+        android:id="@+id/nav_ayuda"
+        android:name="com.example.maps.ui.help.HelpFragment"
+        android:label="Ayuda"
+        tools:layout="@layout/help_fragment" />
+
+    <fragment
+        android:id="@+id/nav_logout"
+        android:name="com.example.maps.ui.logout.LogoutFragment"
+        android:label="Cerrar sesión"
+        tools:layout="@layout/logout_fragment" />
+
+</navigation>

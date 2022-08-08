@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_inicio"
+            android:icon="@drawable/ic_baseline_home_24"
+            android:title="Inicio" />
+        <item
+            android:id="@+id/nav_grupos"
+            android:icon="@drawable/ic_baseline_group_24"
+            android:title="Grupos" />
+        <item
+            android:id="@+id/nav_notificaciones"
+            android:icon="@drawable/ic_baseline_notifications_active_24"
+            android:title="Notificaciones" />
+        <item
+            android:id="@+id/nav_ayuda"
+            android:icon="@drawable/ic_baseline_help_24"
+            android:title="Ayuda" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_baseline_exit_to_app_24"
+            android:title="Cerrar Sesión"
+            />
+    </group>
+</menu>
