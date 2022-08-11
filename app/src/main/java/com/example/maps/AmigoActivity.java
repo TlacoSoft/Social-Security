@@ -106,7 +106,7 @@ public class AmigoActivity extends FragmentActivity implements OnMapReadyCallbac
                                     .tilt(0)
                                     .build();
                             mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
-                            Toast.makeText(AmigoActivity.this, ubi.toString(), Toast.LENGTH_LONG).show();
+                            //Toast.makeText(AmigoActivity.this, ubi.toString(), Toast.LENGTH_LONG).show();
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

@@ -72,7 +72,7 @@ public class FirebaseActivity extends AppCompatActivity {
                     mAuth = FirebaseAuth.getInstance();
                     FirebaseUser user = mAuth.getCurrentUser();
                     if(user !=null){
-                        Toast.makeText(FirebaseActivity.this, user.toString(), Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(FirebaseActivity.this, user.toString(), Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(FirebaseActivity.this, MainActivity.class));
                         finish();
                     }

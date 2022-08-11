@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
 
-        Toast.makeText(this, "Data" + mAuth, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Data" + mAuth, Toast.LENGTH_SHORT).show();
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
@@ -146,13 +146,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void handleSignInResult(GoogleSignInResult result) {
+        //Toast.makeText(this, "Inicio", Toast.LENGTH_SHORT).show();
         //datos = getIntent().getExtras();
         //String datosObtenidos = datos.getString("usuario");
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        Toast.makeText(this, "currentUser" + currentUser.getUid(), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "currentUser" + currentUser.getUid(), Toast.LENGTH_SHORT).show();
+        GoogleSignInAccount account = result.getSignInAccount();
+
         if (result.isSuccess()) {
 
-            GoogleSignInAccount account = result.getSignInAccount();
+
+            //Toast.makeText(this, "Google", Toast.LENGTH_SHORT).show();
 
             //nameTextView.setText(account.getDisplayName());
             //setContentView(R.layout.nav_header_main);
@@ -173,7 +177,7 @@ public class MainActivity extends AppCompatActivity {
 
             //Glide.with(this).load(account.getPhotoUrl()).into(photoImageView);
         } else if(currentUser != null){
-            Toast.makeText(this, "Correcto", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "Correcto", Toast.LENGTH_SHORT).show();
             NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
             View hView =  navigationView.getHeaderView(0);
             ImageView imgvw = (ImageView)hView.findViewById(R.id.foto);

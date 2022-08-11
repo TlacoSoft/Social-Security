@@ -77,7 +77,7 @@ public class ProofActivity extends AppCompatActivity {
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
 
-        Toast.makeText(this, "Data" + mAuth, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Data" + mAuth, Toast.LENGTH_SHORT).show();
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
@@ -216,7 +216,7 @@ public class ProofActivity extends AppCompatActivity {
                                         (Request.Method.GET, url, null, new Response.Listener<JSONObject>(){
                                             @Override
                                             public void onResponse(JSONObject response) {
-                                                notificacion("Bienvenido");
+                                                notificacion("Bienvenido",1);
                                             }
                                         }, new Response.ErrorListener() {
                                             @Override
@@ -226,8 +226,7 @@ public class ProofActivity extends AppCompatActivity {
                                             }
                                         });
                                 requestQueue.add(jsonObjectRequest);
-
-                                Toast.makeText(ProofActivity.this, "user: " + map, Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(ProofActivity.this, "user: " + map, Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(ProofActivity.this, MainActivity.class));
                                 finish();
                             } else {
@@ -239,7 +238,7 @@ public class ProofActivity extends AppCompatActivity {
         });
     }
 
-    public void notificacion(String token){
+    public void notificacion(String token, int id){
         int importance = NotificationManager.IMPORTANCE_DEFAULT;
         NotificationChannel channel = new NotificationChannel(CHANNEL_ID, "nofify", importance);
 
@@ -254,7 +253,7 @@ public class ProofActivity extends AppCompatActivity {
                 .setAutoCancel(true);
 
         NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(this);
-        notificationManager.notify(1,builder.build());
+        notificationManager.notify(id,builder.build());
     }
 
 }

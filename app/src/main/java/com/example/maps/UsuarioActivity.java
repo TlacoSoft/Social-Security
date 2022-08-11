@@ -87,7 +87,7 @@ public class UsuarioActivity extends AppCompatActivity {
     }
 
     public void amigo(View v){
-        Toast.makeText(UsuarioActivity.this, arr.get(0), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(UsuarioActivity.this, arr.get(0), Toast.LENGTH_SHORT).show();
         UsuarioActivity createPackageContext;
         Intent intent = new Intent(createPackageContext = UsuarioActivity.this, AmigoActivity.class);
         intent.putExtra("id", arr.get(0));

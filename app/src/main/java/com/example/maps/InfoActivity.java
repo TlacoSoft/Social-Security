@@ -188,7 +188,7 @@ public class InfoActivity extends AppCompatActivity {
         listausuario.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(InfoActivity.this, arr.get(i), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(InfoActivity.this, arr.get(i), Toast.LENGTH_SHORT).show();
                 InfoActivity createPackageContext;
                 Intent intent = new Intent(createPackageContext = InfoActivity.this, UsuarioActivity.class);
                 intent.putExtra("id", arr.get(i));

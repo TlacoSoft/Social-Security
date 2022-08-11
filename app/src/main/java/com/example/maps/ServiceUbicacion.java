@@ -47,7 +47,8 @@ public class ServiceUbicacion extends Service{
         private GoogleMap mMap;
         private Object MapsActivity;
         private FusedLocationProviderClient fusedLocationClient;
-
+        private int data = 0;
+        private final Handler handler= new Handler();
 
         @Override
         public void onCreate() {
@@ -64,7 +65,6 @@ public class ServiceUbicacion extends Service{
         }
 
         private void ejecutar(){
-            final Handler handler= new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -92,8 +92,9 @@ public class ServiceUbicacion extends Service{
             Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 
             //Mostramos la última posición conocida
-            notificacion(location);
+            notificacion("Compartiendo ubicacion",2);
             guardar(location);
+            verificar(location);
 
 //Nos registramos para recibir actualizaciones de la posición
             LocationListener locationListener = new LocationListener() {
@@ -123,13 +124,28 @@ public class ServiceUbicacion extends Service{
         }
 
         @Override
-        public void onDestroy(){ }
+        public void onDestroy(){
+            notificacion("Ubicación desactivada",3);
+            handler.removeCallbacksAndMessages(null);
+        }
+
+        public void verificar(Location location) {
+            double latitude = location.getLatitude();
+            double longitude = location.getLongitude();
+            if (latitude <= 16.8230 && latitude >= 16.8180 && longitude >= -96.7862 && longitude <= -96.7835) {
+                notificacion("Haz llegado a tu destino",4);
+                Intent myService = new Intent(this, ServiceUbicacion.class);
+                stopService(myService);
+            }
+        }
 
         public void guardar(Location location){
             double latitude = location.getLatitude();
             String lat = String.valueOf(latitude);
             double longitude = location.getLongitude();
             String lng = String.valueOf(longitude);
+
+            //Toast.makeText(thisContext, lat+lng, Toast.LENGTH_SHORT).show();
 
             RequestQueue requestQueue;
 
@@ -152,7 +168,7 @@ public class ServiceUbicacion extends Service{
 
                         @Override
                         public void onResponse(JSONObject response) {
-                            Toast.makeText(getApplication(), response.toString(), Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplication(), "OK", Toast.LENGTH_LONG).show();
                         }
                     }, new Response.ErrorListener() {
 
@@ -167,15 +183,7 @@ public class ServiceUbicacion extends Service{
             requestQueue.add(jsonObjectRequest);
         }
 
-        public void notificacion(Location location) {
-            double latitude = location.getLatitude();
-            String lat = String.valueOf(latitude);
-            double longitude = location.getLongitude();
-            String lng = String.valueOf(longitude);
-
-            Toast.makeText(this,lat,Toast.LENGTH_SHORT).show();
-            Toast.makeText(this,lng,Toast.LENGTH_SHORT).show();
-
+        public void notificacion(String token, int id) {
             String name = "Notifi";
             int importance = NotificationManager.IMPORTANCE_DEFAULT;
             NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
@@ -189,13 +197,13 @@ public class ServiceUbicacion extends Service{
 
             NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
                     .setSmallIcon(R.drawable.logo)
-                    .setContentTitle("Oaxaca Tour")
-                    .setContentText("Compartiendo ubicacion")
+                    .setContentTitle("Social Security")
+                    .setContentText(token)
                     .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                     .setAutoCancel(true);
 
             NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(this);
-            notificationManager.notify(1, builder.build());
+            notificationManager.notify(id, builder.build());
         }
 
         @Nullable
